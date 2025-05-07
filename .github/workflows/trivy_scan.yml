@@ -43,6 +43,7 @@ jobs:
       - name: Verify scan results exist
         run: ls -l "GitHubActions/Trivy Automation/"
 
+        
       - name: Commit scan results to repository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
