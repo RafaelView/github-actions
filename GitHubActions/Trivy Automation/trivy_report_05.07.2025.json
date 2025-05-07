@@ -1,0 +1,6 @@
+[
+  {
+    "Target": "cloudhack01/vulnapp:latest (redhat 9.2)",
+    "Type": "redhat"
+  }
+]
