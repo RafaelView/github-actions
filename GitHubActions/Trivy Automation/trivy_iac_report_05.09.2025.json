@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-05-09T08:15:34.319784763Z",
+  "CreatedAt": "2025-05-09T08:17:53.654633894Z",
   "ArtifactName": ".",
   "ArtifactType": "filesystem",
   "Metadata": {
@@ -14,5 +14,70 @@
       },
       "config": {}
     }
-  }
+  },
+  "Results": [
+    {
+      "Target": ".",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    },
+    {
+      "Target": "examples/automation-account",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    },
+    {
+      "Target": "examples/backup",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    },
+    {
+      "Target": "examples/main",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    },
+    {
+      "Target": "examples/update-center",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    },
+    {
+      "Target": "examples/update-management",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    },
+    {
+      "Target": "examples/vm-monitoring",
+      "Class": "config",
+      "Type": "terraform",
+      "MisconfSummary": {
+        "Successes": 37,
+        "Failures": 0
+      }
+    }
+  ]
 }
