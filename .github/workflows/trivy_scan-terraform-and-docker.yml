@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Scan Docker image and Terraform IaC with Trivy
+    name: Scan Docker image and Terraform IaC with Trivy and tfsec
     runs-on: ubuntu-latest
 
     steps:
@@ -37,30 +37,15 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
           output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
 
-      - name: Run Trivy IaC scan (Terraform)
-        uses: aquasecurity/trivy-action@0.30.0
-        with:
-          scan-type: 'config'
-          format: 'json'
-          output: 'GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json'
-
-      - name: Install Terraform
+      - name: Install tfsec
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gnupg software-properties-common curl
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-          echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-          sudo apt-get update && sudo apt-get install terraform -y
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install.sh | bash
 
-
-      - name: Scan remote Terraform repository
+      - name: Scan remote Terraform repository with tfsec
         run: |
           git clone https://github.com/claranet/terraform-azurerm-run-iaas.git temp-repo
           cd temp-repo
-          # Initialize Terraform modules
-          terraform init
-          # Run Trivy scan after initializing Terraform
-          trivy config --format json -o "../GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json" .
+          tfsec . --format json > "../GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
           cd ..
           rm -rf temp-repo
 
@@ -74,6 +59,6 @@ jobs:
           git config --global user.name "RafaelView"
           git config --global user.email ""
           git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
-          git add "GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json"
-          git commit -m "Add Trivy scan reports (Docker + Terraform) for ${{ env.DATE }}"
+          git add "GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
+          git commit -m "Add Trivy and tfsec scan reports (Docker + Terraform) for ${{ env.DATE }}"
           git push origin HEAD:main
