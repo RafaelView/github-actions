@@ -27,6 +27,13 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
+      - name: Install Terraform
+        run: |
+          sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt-get update && sudo apt-get install -y terraform
+
       - name: Run Trivy vulnerability scan on Docker image
         uses: aquasecurity/trivy-action@0.30.0
         with:
@@ -54,7 +61,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "RafaelView"
-          git config --global user.email ""
+          git config --global user.email "rafael.jimenezb@viewnext.com"
           git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
           git add "GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json"
           git commit -m "Add Trivy scan reports (Docker + Terraform) for ${{ env.DATE }}"
