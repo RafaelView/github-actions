@@ -1,5 +1,4 @@
 name: Trivy Scan
-
 on:
   push:
     branches:
@@ -7,7 +6,6 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   build:
     name: Scan Docker image and Terraform IaC with Trivy
@@ -46,6 +44,15 @@ jobs:
           IAC_OUTPUT_FILE="GitHubActions/Trivy Automation/trivy_iac_report_${{ env.DATE }}.json"
           trivy config --format json -o "$IAC_OUTPUT_FILE" .
 
+      - name: Scan remote Terraform repository
+        run: |
+          git clone https://github.com/claranet/terraform-azurerm-run-iaas.git temp-repo
+          cd temp-repo
+          IAC_REMOTE_OUTPUT_FILE="../GitHubActions/Trivy Automation/trivy_remote_tf_report_${{ env.DATE }}.json"
+          trivy config --format json -o "$IAC_REMOTE_OUTPUT_FILE" .
+          cd ..
+          rm -rf temp-repo
+
       - name: Verify scan results exist
         run: ls -l "GitHubActions/Trivy Automation/"
 
@@ -54,8 +61,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "RafaelView"
-          git config --global user.email "rafael.jimenezb@viewnext.com"
+          git config --global user.email ""
           git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
           git add "GitHubActions/Trivy Automation/trivy_iac_report_${{ env.DATE }}.json"
-          git commit -m "Add Trivy scan reports (Docker + IaC) for ${{ env.DATE }}"
+          git add "GitHubActions/Trivy Automation/trivy_remote_tf_report_${{ env.DATE }}.json"
+          git commit -m "Add Trivy scan reports (Docker + IaC + Remote Terraform) for ${{ env.DATE }}"
           git push origin HEAD:main
