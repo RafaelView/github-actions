@@ -50,7 +50,7 @@ jobs:
           cd temp-repo
 
           # Escanear directamente los archivos .tf sin ejecutar terraform plan
-          trivy config --skip-policy "cloud/policies/aws/ec2/specify_ami_owners" --format json --output "../GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json" .
+          trivy config --ignore-policy "cloud/policies/aws/ec2/specify_ami_owners" --format json --output "../GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json" .
 
           cd ..
           rm -rf temp-repo
