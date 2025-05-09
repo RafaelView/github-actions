@@ -44,6 +44,10 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
           output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
 
+      - name: Clone Terraform repository
+        run: |
+          git clone https://github.com/terraform-aws-modules/terraform-aws-vpc.git temp-repo
+
       - name: Run Tfsec to scan Terraform IaC and generate SARIF report
         uses: aquasecurity/tfsec-sarif-action@v0.1.4
         with:
