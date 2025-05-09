@@ -39,7 +39,9 @@ jobs:
 
       - name: Install tfsec
         run: |
+          set +u  # Desactiva el error por variables no definidas
           curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install.sh | bash
+          set -u  # Reactiva el error por variables no definidas
 
       - name: Scan remote Terraform repository with tfsec
         run: |
