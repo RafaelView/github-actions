@@ -22,7 +22,7 @@ jobs:
         run: echo "DATE=$(date +%m.%d.%Y)" >> $GITHUB_ENV
 
       - name: Create output directory
-        run: mkdir -p "GitHubActions/Security Automation"
+        run: mkdir -p "GitHubActions/Trivy Automation"
 
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
@@ -44,25 +44,11 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
           output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
 
-      - name: Run Tfsec to scan Terraform IaC
-        run: |
-          git clone https://github.com/terraform-aws-modules/terraform-aws-vpc.git temp-repo
-          cd temp-repo
-
-          # Desactivar temporalmente el error por variables no definidas
-          set +u
-
-          # Instalar tfsec
-          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install.sh | bash
-
-          # Reactivar el error por variables no definidas
-          set -u
-
-          # Escanear los archivos .tf con tfsec
-          tfsec . --format json > "../GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
-
-          cd ..
-          rm -rf temp-repo
+      - name: Run Tfsec to scan Terraform IaC and generate SARIF report
+        uses: aquasecurity/tfsec-sarif-action@v0.1.4
+        with:
+          working_directory: ./temp-repo
+          sarif_file: "GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.sarif"
 
       - name: Verify scan results exist
         run: ls -l "GitHubActions/Trivy Automation/"
@@ -74,6 +60,6 @@ jobs:
           git config --global user.name "RafaelView"
           git config --global user.email "rafael.jimenezb@viewnext.com"
           git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
-          git add "GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
+          git add "GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.sarif"
           git commit -m "Add security scan reports (Docker + Terraform) for ${{ env.DATE }}"
           git push origin HEAD:main
