@@ -48,7 +48,7 @@ jobs:
         run: |
           git clone https://github.com/claranet/terraform-azurerm-run-iaas.git temp-repo
           cd temp-repo
-          trivy config --format json -o "../GitHubActions/Trivy Automation/trivy_remote_tf_report_${{ env.DATE }}.json" .
+          trivy config --format json -o "../GitHubActions/Trivy Automation/trivy_iac_report_${{ env.DATE }}.json" .
           cd ..
           rm -rf temp-repo
 
