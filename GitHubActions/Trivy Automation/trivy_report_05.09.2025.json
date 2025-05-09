@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-05-09T09:20:52.102379042Z",
+  "CreatedAt": "2025-05-09T09:32:42.842069004Z",
   "ArtifactName": "cloudhack01/vulnapp:latest",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -417,6 +417,7 @@
         {
           "VulnerabilityID": "CVE-2023-4408",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-libs@9.16.23-11.el9_2.1.x86_64",
@@ -500,6 +501,7 @@
         {
           "VulnerabilityID": "CVE-2023-50387",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-libs@9.16.23-11.el9_2.1.x86_64",
@@ -617,6 +619,7 @@
         {
           "VulnerabilityID": "CVE-2023-50868",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-libs@9.16.23-11.el9_2.1.x86_64",
@@ -720,6 +723,7 @@
         {
           "VulnerabilityID": "CVE-2023-5517",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-libs@9.16.23-11.el9_2.1.x86_64",
@@ -803,6 +807,7 @@
         {
           "VulnerabilityID": "CVE-2023-5679",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-libs@9.16.23-11.el9_2.1.x86_64",
@@ -885,6 +890,7 @@
         {
           "VulnerabilityID": "CVE-2023-6516",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-libs@9.16.23-11.el9_2.1.x86_64",
@@ -1311,6 +1317,7 @@
         {
           "VulnerabilityID": "CVE-2023-4408",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-license@9.16.23-11.el9_2.1.noarch",
@@ -1394,6 +1401,7 @@
         {
           "VulnerabilityID": "CVE-2023-50387",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-license@9.16.23-11.el9_2.1.noarch",
@@ -1511,6 +1519,7 @@
         {
           "VulnerabilityID": "CVE-2023-50868",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-license@9.16.23-11.el9_2.1.noarch",
@@ -1614,6 +1623,7 @@
         {
           "VulnerabilityID": "CVE-2023-5517",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-license@9.16.23-11.el9_2.1.noarch",
@@ -1697,6 +1707,7 @@
         {
           "VulnerabilityID": "CVE-2023-5679",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-license@9.16.23-11.el9_2.1.noarch",
@@ -1779,6 +1790,7 @@
         {
           "VulnerabilityID": "CVE-2023-6516",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-license@9.16.23-11.el9_2.1.noarch",
@@ -2205,6 +2217,7 @@
         {
           "VulnerabilityID": "CVE-2023-4408",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-utils@9.16.23-11.el9_2.1.x86_64",
@@ -2288,6 +2301,7 @@
         {
           "VulnerabilityID": "CVE-2023-50387",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-utils@9.16.23-11.el9_2.1.x86_64",
@@ -2405,6 +2419,7 @@
         {
           "VulnerabilityID": "CVE-2023-50868",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-utils@9.16.23-11.el9_2.1.x86_64",
@@ -2508,6 +2523,7 @@
         {
           "VulnerabilityID": "CVE-2023-5517",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-utils@9.16.23-11.el9_2.1.x86_64",
@@ -2591,6 +2607,7 @@
         {
           "VulnerabilityID": "CVE-2023-5679",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-utils@9.16.23-11.el9_2.1.x86_64",
@@ -2673,6 +2690,7 @@
         {
           "VulnerabilityID": "CVE-2023-6516",
           "VendorIDs": [
+            "RHSA-2024:1789",
             "RHSA-2024:2551"
           ],
           "PkgID": "bind-utils@9.16.23-11.el9_2.1.x86_64",
@@ -3334,6 +3352,7 @@
         {
           "VulnerabilityID": "CVE-2023-38545",
           "VendorIDs": [
+            "RHSA-2023:5763",
             "RHSA-2023:6745"
           ],
           "PkgID": "curl-minimal@7.76.1-23.el9_2.1.x86_64",
@@ -4021,6 +4040,7 @@
         {
           "VulnerabilityID": "CVE-2023-38546",
           "VendorIDs": [
+            "RHSA-2023:5763",
             "RHSA-2023:6745"
           ],
           "PkgID": "curl-minimal@7.76.1-23.el9_2.1.x86_64",
@@ -5360,7 +5380,8 @@
         {
           "VulnerabilityID": "CVE-2023-4911",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc@2.34-60.el9.x86_64",
           "PkgName": "glibc",
@@ -5707,7 +5728,8 @@
         {
           "VulnerabilityID": "CVE-2023-4806",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc@2.34-60.el9.x86_64",
           "PkgName": "glibc",
@@ -5793,7 +5815,8 @@
         {
           "VulnerabilityID": "CVE-2023-4813",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc@2.34-60.el9.x86_64",
           "PkgName": "glibc",
@@ -6167,7 +6190,8 @@
         {
           "VulnerabilityID": "CVE-2023-4911",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc-common@2.34-60.el9.x86_64",
           "PkgName": "glibc-common",
@@ -6514,7 +6538,8 @@
         {
           "VulnerabilityID": "CVE-2023-4806",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc-common@2.34-60.el9.x86_64",
           "PkgName": "glibc-common",
@@ -6600,7 +6625,8 @@
         {
           "VulnerabilityID": "CVE-2023-4813",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc-common@2.34-60.el9.x86_64",
           "PkgName": "glibc-common",
@@ -6974,7 +7000,8 @@
         {
           "VulnerabilityID": "CVE-2023-4911",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc-minimal-langpack@2.34-60.el9.x86_64",
           "PkgName": "glibc-minimal-langpack",
@@ -7321,7 +7348,8 @@
         {
           "VulnerabilityID": "CVE-2023-4806",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc-minimal-langpack@2.34-60.el9.x86_64",
           "PkgName": "glibc-minimal-langpack",
@@ -7407,7 +7435,8 @@
         {
           "VulnerabilityID": "CVE-2023-4813",
           "VendorIDs": [
-            "RHBA-2024:2413"
+            "RHBA-2024:2413",
+            "RHSA-2023:5453"
           ],
           "PkgID": "glibc-minimal-langpack@2.34-60.el9.x86_64",
           "PkgName": "glibc-minimal-langpack",
@@ -8085,6 +8114,7 @@
         {
           "VulnerabilityID": "CVE-2024-28834",
           "VendorIDs": [
+            "RHSA-2024:1879",
             "RHSA-2024:2570"
           ],
           "PkgID": "gnutls@3.7.6-20.el9_2.x86_64",
@@ -8161,6 +8191,7 @@
         {
           "VulnerabilityID": "CVE-2024-28835",
           "VendorIDs": [
+            "RHSA-2024:1879",
             "RHSA-2024:2570"
           ],
           "PkgID": "gnutls@3.7.6-20.el9_2.x86_64",
@@ -12118,6 +12149,7 @@
         {
           "VulnerabilityID": "CVE-2023-38545",
           "VendorIDs": [
+            "RHSA-2023:5763",
             "RHSA-2023:6745"
           ],
           "PkgID": "libcurl-minimal@7.76.1-23.el9_2.1.x86_64",
@@ -12805,6 +12837,7 @@
         {
           "VulnerabilityID": "CVE-2023-38546",
           "VendorIDs": [
+            "RHSA-2023:5763",
             "RHSA-2023:6745"
           ],
           "PkgID": "libcurl-minimal@7.76.1-23.el9_2.1.x86_64",
@@ -13626,6 +13659,7 @@
         {
           "VulnerabilityID": "CVE-2023-44487",
           "VendorIDs": [
+            "RHSA-2023:5838",
             "RHSA-2023:6746"
           ],
           "PkgID": "libnghttp2@1.43.0-5.el9.x86_64",
@@ -15073,6 +15107,7 @@
         {
           "VulnerabilityID": "CVE-2024-27316",
           "VendorIDs": [
+            "RHSA-2024:1872",
             "RHSA-2024:2564"
           ],
           "PkgID": "mod_http2@1.15.19-4.el9_2.4.x86_64",
@@ -23819,6 +23854,7 @@
         {
           "VulnerabilityID": "CVE-2024-6232",
           "VendorIDs": [
+            "RHSA-2024:8446",
             "RHSA-2024:9468"
           ],
           "PkgID": "python-unversioned-command@3.9.16-1.el9_2.1.noarch",
@@ -23984,6 +24020,7 @@
         {
           "VulnerabilityID": "CVE-2024-8088",
           "VendorIDs": [
+            "RHSA-2024:6163",
             "RHSA-2024:9371"
           ],
           "PkgID": "python-unversioned-command@3.9.16-1.el9_2.1.noarch",
@@ -24745,6 +24782,7 @@
         {
           "VulnerabilityID": "CVE-2024-6232",
           "VendorIDs": [
+            "RHSA-2024:8446",
             "RHSA-2024:9468"
           ],
           "PkgID": "python3@3.9.16-1.el9_2.1.x86_64",
@@ -24910,6 +24948,7 @@
         {
           "VulnerabilityID": "CVE-2024-8088",
           "VendorIDs": [
+            "RHSA-2024:6163",
             "RHSA-2024:9371"
           ],
           "PkgID": "python3@3.9.16-1.el9_2.1.x86_64",
@@ -25812,6 +25851,7 @@
         {
           "VulnerabilityID": "CVE-2024-6232",
           "VendorIDs": [
+            "RHSA-2024:8446",
             "RHSA-2024:9468"
           ],
           "PkgID": "python3-libs@3.9.16-1.el9_2.1.x86_64",
@@ -25977,6 +26017,7 @@
         {
           "VulnerabilityID": "CVE-2024-8088",
           "VendorIDs": [
+            "RHSA-2024:6163",
             "RHSA-2024:9371"
           ],
           "PkgID": "python3-libs@3.9.16-1.el9_2.1.x86_64",
@@ -36484,7 +36525,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.11, 1.22.4",
@@ -36569,7 +36610,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.9, 1.22.2",
@@ -36662,7 +36703,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.22.7, 1.23.1",
@@ -36733,7 +36774,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.20.12, 1.21.5",
@@ -36805,7 +36846,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.8, 1.22.1",
@@ -36884,7 +36925,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.8, 1.22.1",
@@ -36963,7 +37004,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.8, 1.22.1",
@@ -37046,7 +37087,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.8, 1.22.1",
@@ -37137,7 +37178,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.8, 1.22.1",
@@ -37225,7 +37266,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.11, 1.22.4",
@@ -37313,7 +37354,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.21.12, 1.22.5",
@@ -37391,7 +37432,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.22.7, 1.23.1",
@@ -37473,7 +37514,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.22.7, 1.23.1",
@@ -37560,7 +37601,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.22.11, 1.23.5, 1.24.0-rc.2",
@@ -37623,7 +37664,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.22.11, 1.23.5, 1.24.0-rc.2",
@@ -37685,7 +37726,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.22.12, 1.23.6, 1.24.0-rc.3",
@@ -37736,7 +37777,7 @@
           "PkgName": "stdlib",
           "PkgIdentifier": {
             "PURL": "pkg:golang/stdlib@v1.21.4",
-            "UID": "80d739b160cc7915"
+            "UID": "b69ab0b20050d92b"
           },
           "InstalledVersion": "v1.21.4",
           "FixedVersion": "1.23.8, 1.24.2",
