@@ -12,10 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Clone Terraform repository
-        run: |
-          git clone https://github.com/terraform-aws-modules/terraform-aws-vpc.git temp-repo
-
       - name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@0.28.0
         with:
@@ -23,7 +19,6 @@ jobs:
           hide-progress: true
           format: 'sarif'
           output: 'trivy-results.sarif'
-          # input: './temp-repo'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
 
