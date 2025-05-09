@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-05-09T08:57:11.454171365Z",
+  "CreatedAt": "2025-05-09T08:59:30.365908285Z",
   "ArtifactName": "cloudhack01/vulnapp:latest",
   "ArtifactType": "container_image",
   "Metadata": {
