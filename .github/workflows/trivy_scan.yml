@@ -34,15 +34,20 @@ jobs:
           echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
           sudo apt-get update && sudo apt-get install -y terraform
 
-      - name: Run Trivy vulnerability scan on Docker image
-        uses: aquasecurity/trivy-action@0.30.0
+      - name: Run Trivy vulnerability scanner in IaC mode
+        uses: aquasecurity/trivy-action@0.28.0
         with:
-          image-ref: cloudhack01/vulnapp:latest
-          format: 'json'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
-          output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
+          scan-type: 'config'
+          hide-progress: true
+          format: 'sarif'
+          output: 'GitHubActions/Trivy Automation/trivy-results.sarif'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'GitHubActions/Trivy Automation/trivy-results.sarif'
 
       - name: Scan Terraform IaC with Trivy
         run: |
@@ -50,7 +55,7 @@ jobs:
           cd temp-repo
 
           # Escanear directamente los archivos .tf sin ejecutar terraform plan
-          trivy config --format json --output "../GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json" .
+          trivy config --ignore --format json --output "../GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json" .
 
           cd ..
           rm -rf temp-repo
@@ -64,7 +69,7 @@ jobs:
         run: |
           git config --global user.name "RafaelView"
           git config --global user.email "rafael.jimenezb@viewnext.com"
-          git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
+          git add "GitHubActions/Trivy Automation/trivy-results.sarif"
           git add "GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json"
           git commit -m "Add Trivy scan reports (Docker + Terraform) for ${{ env.DATE }}"
           git push origin HEAD:main
