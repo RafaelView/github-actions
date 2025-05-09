@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-05-09T09:07:31.902973429Z",
+  "CreatedAt": "2025-05-09T09:10:40.028998884Z",
   "ArtifactName": ".",
   "ArtifactType": "filesystem",
   "Metadata": {
@@ -29107,15 +29107,6 @@
     },
     {
       "Target": "self-serve-infrastructure/getting-started/terraform-gcp",
-      "Class": "config",
-      "Type": "terraform",
-      "MisconfSummary": {
-        "Successes": 37,
-        "Failures": 0
-      }
-    },
-    {
-      "Target": "self-serve-infrastructure/k8s-services",
       "Class": "config",
       "Type": "terraform",
       "MisconfSummary": {
