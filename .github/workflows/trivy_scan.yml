@@ -23,7 +23,7 @@ jobs:
           hide-progress: true
           format: 'sarif'
           output: 'trivy-results.sarif'
-          input: './temp-repo'
+          # input: './temp-repo'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
 
