@@ -1,4 +1,4 @@
-name: Trivy Scan
+name: Security Scan
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Scan Docker image and Terraform IaC with Trivy
+    name: Scan Docker image and Terraform IaC
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
         run: echo "DATE=$(date +%m.%d.%Y)" >> $GITHUB_ENV
 
       - name: Create output directory
-        run: mkdir -p "GitHubActions/Trivy Automation"
+        run: mkdir -p "GitHubActions/Security Automation"
 
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
@@ -35,28 +35,31 @@ jobs:
           sudo apt-get update && sudo apt-get install -y terraform
 
       - name: Run Trivy vulnerability scan on Docker image
-        uses: aquasecurity/trivy-action@0.29.0
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: cloudhack01/vulnapp:latest
           format: 'json'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
-          output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
+          output: 'GitHubActions/Security Automation/trivy_report_${{ env.DATE }}.json'
 
-      - name: Scan Terraform IaC with Trivy
+      - name: Run Tfsec to scan Terraform IaC
         run: |
           git clone https://github.com/terraform-aws-modules/terraform-aws-vpc.git temp-repo
           cd temp-repo
 
-          # Escanear directamente los archivos .tf sin ejecutar terraform plan
-          trivy config --format json --output "../GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json" .
+          # Instalar tfsec
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install.sh | bash
+
+          # Escanear los archivos .tf con tfsec
+          tfsec . --format json > "../GitHubActions/Security Automation/tfsec_report_${{ env.DATE }}.json"
 
           cd ..
           rm -rf temp-repo
 
       - name: Verify scan results exist
-        run: ls -l "GitHubActions/Trivy Automation/"
+        run: ls -l "GitHubActions/Security Automation/"
 
       - name: Commit scan results to repository
         env:
@@ -64,7 +67,7 @@ jobs:
         run: |
           git config --global user.name "RafaelView"
           git config --global user.email "rafael.jimenezb@viewnext.com"
-          git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
-          git add "GitHubActions/Trivy Automation/trivy_terraform_report_${{ env.DATE }}.json"
-          git commit -m "Add Trivy scan reports (Docker + Terraform) for ${{ env.DATE }}"
+          git add "GitHubActions/Security Automation/trivy_report_${{ env.DATE }}.json"
+          git add "GitHubActions/Security Automation/tfsec_report_${{ env.DATE }}.json"
+          git commit -m "Add security scan reports (Docker + Terraform) for ${{ env.DATE }}"
           git push origin HEAD:main
