@@ -49,8 +49,14 @@ jobs:
           git clone https://github.com/terraform-aws-modules/terraform-aws-vpc.git temp-repo
           cd temp-repo
 
+          # Desactivar temporalmente el error por variables no definidas
+          set +u
+
           # Instalar tfsec
           curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install.sh | bash
+
+          # Reactivar el error por variables no definidas
+          set -u
 
           # Escanear los archivos .tf con tfsec
           tfsec . --format json > "../GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
