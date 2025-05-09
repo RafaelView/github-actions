@@ -46,13 +46,8 @@ jobs:
 
       - name: Scan Terraform IaC with Trivy
         run: |
-          git clone https://github.com/claranet/terraform-azurerm-run-iaas.git temp-repo
+          git clone https://github.com/hashicorp/terraform-guides.git temp-repo
           cd temp-repo
-
-          # Proporcionar valores para las variables
-          echo 'client_name = "example-client"' > terraform.tfvars
-          echo 'environment = "dev"' >> terraform.tfvars
-          echo 'location = "eastus"' >> terraform.tfvars
 
           # Inicializar Terraform
           terraform init
