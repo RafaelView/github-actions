@@ -42,7 +42,7 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
-          output: 'GitHubActions/Security Automation/trivy_report_${{ env.DATE }}.json'
+          output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
 
       - name: Run Tfsec to scan Terraform IaC
         run: |
@@ -53,13 +53,13 @@ jobs:
           curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install.sh | bash
 
           # Escanear los archivos .tf con tfsec
-          tfsec . --format json > "../GitHubActions/Security Automation/tfsec_report_${{ env.DATE }}.json"
+          tfsec . --format json > "../GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
 
           cd ..
           rm -rf temp-repo
 
       - name: Verify scan results exist
-        run: ls -l "GitHubActions/Security Automation/"
+        run: ls -l "GitHubActions/Trivy Automation/"
 
       - name: Commit scan results to repository
         env:
@@ -67,7 +67,7 @@ jobs:
         run: |
           git config --global user.name "RafaelView"
           git config --global user.email "rafael.jimenezb@viewnext.com"
-          git add "GitHubActions/Security Automation/trivy_report_${{ env.DATE }}.json"
-          git add "GitHubActions/Security Automation/tfsec_report_${{ env.DATE }}.json"
+          git add "GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
+          git add "GitHubActions/Trivy Automation/tfsec_report_${{ env.DATE }}.json"
           git commit -m "Add security scan reports (Docker + Terraform) for ${{ env.DATE }}"
           git push origin HEAD:main
