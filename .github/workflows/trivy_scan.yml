@@ -1,4 +1,5 @@
 name: Trivy Scan
+
 on:
   push:
     branches:
@@ -6,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
     name: Scan Docker image and Terraform IaC with Trivy
@@ -22,34 +24,31 @@ jobs:
       - name: Create output directory
         run: mkdir -p "GitHubActions/Trivy Automation"
 
-      - name: Install Trivy
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin v0.57.0
-
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-      - name: Download Trivy vulnerability DB
-        run: trivy image --download-db-only
-
       - name: Run Trivy vulnerability scan on Docker image
-        run: |
-          OUTPUT_FILE="GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json"
-          trivy image --format json --ignore-unfixed --vuln-type os,library --severity CRITICAL,HIGH,MEDIUM,LOW -o "$OUTPUT_FILE" cloudhack01/vulnapp:latest
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          image-ref: cloudhack01/vulnapp:latest
+          format: 'json'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+          output: 'GitHubActions/Trivy Automation/trivy_report_${{ env.DATE }}.json'
 
       - name: Run Trivy IaC scan (Terraform)
-        run: |
-          IAC_OUTPUT_FILE="GitHubActions/Trivy Automation/trivy_iac_report_${{ env.DATE }}.json"
-          trivy config --format json -o "$IAC_OUTPUT_FILE" .
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          scan-type: 'config'
+          format: 'json'
+          output: 'GitHubActions/Trivy Automation/trivy_iac_report_${{ env.DATE }}.json'
 
       - name: Scan remote Terraform repository
         run: |
           git clone https://github.com/claranet/terraform-azurerm-run-iaas.git temp-repo
           cd temp-repo
-          IAC_REMOTE_OUTPUT_FILE="../GitHubActions/Trivy Automation/trivy_remote_tf_report_${{ env.DATE }}.json"
-          trivy config --format json -o "$IAC_REMOTE_OUTPUT_FILE" .
+          trivy config --format json -o "../GitHubActions/Trivy Automation/trivy_remote_tf_report_${{ env.DATE }}.json" .
           cd ..
           rm -rf temp-repo
 
