@@ -46,7 +46,7 @@ jobs:
 
       - name: Scan Terraform IaC with Trivy
         run: |
-          git clone https://github.com/hashicorp/terraform-guides.git temp-repo
+          git clone https://github.com/terraform-aws-modules/terraform-aws-vpc.git temp-repo
           cd temp-repo
 
           # Inicializar Terraform
