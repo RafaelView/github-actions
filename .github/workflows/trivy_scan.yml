@@ -5,7 +5,6 @@ on:
       - main
   pull_request:
 
-    
 jobs:
   build:
     name: Build
@@ -23,8 +22,8 @@ jobs:
         with:
           scan-type: 'config'
           hide-progress: true
-          format: 'json' # Cambiado a JSON
-          output: 'trivy-results.json' # Archivo de salida en formato JSON
+          format: 'sarif' # Cambiado a JSON
+          output: 'trivy-results.sarif' # Archivo de salida en formato JSON
           input: './temp-repo'
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
