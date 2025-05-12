@@ -5186,6 +5186,60 @@
                   "uriBaseId": "ROOTPATH"
                 },
                 "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 7,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AVD-AWS-0028",
+          "ruleIndex": 9,
+          "level": "error",
+          "message": {
+            "text": "Artifact: temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf\nType: terraform\nVulnerability AVD-AWS-0028\nSeverity: HIGH\nMessage: Instance does not require IMDS access to require a token.\nLink: [AVD-AWS-0028](https://avd.aquasec.com/misconfig/avd-aws-0028)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AVD-AWS-0028",
+          "ruleIndex": 9,
+          "level": "error",
+          "message": {
+            "text": "Artifact: temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf\nType: terraform\nVulnerability AVD-AWS-0028\nSeverity: HIGH\nMessage: Instance does not require IMDS access to require a token.\nLink: [AVD-AWS-0028](https://avd.aquasec.com/misconfig/avd-aws-0028)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
                   "startLine": 1,
                   "startColumn": 1,
                   "endLine": 3,
@@ -5270,60 +5324,6 @@
                   "startLine": 5,
                   "startColumn": 1,
                   "endLine": 7,
-                  "endColumn": 1
-                }
-              },
-              "message": {
-                "text": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf"
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AVD-AWS-0028",
-          "ruleIndex": 9,
-          "level": "error",
-          "message": {
-            "text": "Artifact: temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf\nType: terraform\nVulnerability AVD-AWS-0028\nSeverity: HIGH\nMessage: Instance does not require IMDS access to require a token.\nLink: [AVD-AWS-0028](https://avd.aquasec.com/misconfig/avd-aws-0028)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf",
-                  "uriBaseId": "ROOTPATH"
-                },
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 1,
-                  "endLine": 7,
-                  "endColumn": 1
-                }
-              },
-              "message": {
-                "text": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf"
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AVD-AWS-0028",
-          "ruleIndex": 9,
-          "level": "error",
-          "message": {
-            "text": "Artifact: temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf\nType: terraform\nVulnerability AVD-AWS-0028\nSeverity: HIGH\nMessage: Instance does not require IMDS access to require a token.\nLink: [AVD-AWS-0028](https://avd.aquasec.com/misconfig/avd-aws-0028)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "temp-repo/vendor/github.com/hashicorp/terraform/config/test-fixtures/validate-dup-resource/main.tf",
-                  "uriBaseId": "ROOTPATH"
-                },
-                "region": {
-                  "startLine": 1,
-                  "startColumn": 1,
-                  "endLine": 3,
                   "endColumn": 1
                 }
               },
@@ -5591,9 +5591,9 @@
                   "uriBaseId": "ROOTPATH"
                 },
                 "region": {
-                  "startLine": 5,
+                  "startLine": 1,
                   "startColumn": 1,
-                  "endLine": 7,
+                  "endLine": 3,
                   "endColumn": 1
                 }
               },
@@ -5618,9 +5618,9 @@
                   "uriBaseId": "ROOTPATH"
                 },
                 "region": {
-                  "startLine": 1,
+                  "startLine": 5,
                   "startColumn": 1,
-                  "endLine": 3,
+                  "endLine": 7,
                   "endColumn": 1
                 }
               },
