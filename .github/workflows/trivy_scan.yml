@@ -33,11 +33,11 @@ jobs:
           output: "Trivy Reports/trivy_report_${{ env.CURRENT_DATE }}.json"
           input: './temp-repo'
           exit-code: '0'
-          severity: 'CRITICAL,HIGH'
+          severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL' # Escanea todas las severidades
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TRIVY_SEVERITY: 'CRITICAL,HIGH'
+          TRIVY_SEVERITY: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'
           TRIVY_IACT_MODE: 'true'
           TRIVY_IACT_CONFIG: 'true'
           TRIVY_IACT_VULN: 'false'
@@ -47,8 +47,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name "RafaelView"
-          git config --global user.email "rafael.jimenezb@viewnext.com"
+          git config --global user.name ""
+          git config --global user.email ""
           git add "Trivy Reports/trivy_report_${{ env.CURRENT_DATE }}.json"
           git commit -m "Add Trivy scan results for ${{ env.CURRENT_DATE }}"
           git push origin HEAD:main
