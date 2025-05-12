@@ -1,10 +1,11 @@
 name: build
-
 on:
   push:
     branches:
       - main
   pull_request:
+
+    
 jobs:
   build:
     name: Build
@@ -22,8 +23,8 @@ jobs:
         with:
           scan-type: 'config'
           hide-progress: true
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+          format: 'json' # Cambiado a JSON
+          output: 'trivy-results.json' # Archivo de salida en formato JSON
           input: './temp-repo'
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
@@ -36,17 +37,12 @@ jobs:
           TRIVY_IACT_VULN: 'false'
           TRIVY_IACT_POLICY: 'false'
 
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'trivy-results.sarif'
-
       - name: Commit and push Trivy scan results
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "RafaelView"
           git config --global user.email "rafael.jimenezb@viewnext.com"
-          git add trivy-results.sarif
-          git commit -m "Add Trivy scan results"
+          git add trivy-results.json
+          git commit -m "Add Trivy scan results in JSON format"
           git push origin HEAD:main
